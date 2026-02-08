@@ -1,0 +1,13 @@
+# Pythonの仮想環境
+.venv/
+venv/
+
+# キャッシュファイル
+__pycache__/
+*.pyc
+
+# Mac特有のシステムファイル
+.DS_Store
+
+# 環境変数（APIキーなどが入るファイル）
+.env
