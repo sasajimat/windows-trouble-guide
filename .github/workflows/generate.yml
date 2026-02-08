@@ -1,0 +1,29 @@
+name: Auto Generate Articles
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - run: pip install openai
+
+      - run: python scripts/generate.py
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+      - run: |
+          git config user.name "bot"
+          git config user.email "bot@example.com"
+          git add .
+          git commit -m "auto generate article"
+          git push
