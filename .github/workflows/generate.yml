@@ -22,8 +22,8 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
       - run: |
-          git config user.name "bot"
-          git config user.email "bot@example.com"
-          git add .
+          git config user.name "sasajimat"
+          git config user.email "sasajima29t@gmail.com"
+          git add docs/*.html data/keywords.csv
           git commit -m "auto generate article"
           git push
